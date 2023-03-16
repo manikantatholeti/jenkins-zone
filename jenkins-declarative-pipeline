@@ -1,0 +1,17 @@
+pipeline{
+    agent {label 'MVN_JDK8'}
+    stages{
+        stage('vcs'){
+            steps{
+              git 'https://github.com/veerendradevops/game-of-life.git'
+            }
+        }
+         stage('package'){
+            steps{
+                sh 'mvn clean package'
+                
+            }
+        }
+         
+    }
+}
